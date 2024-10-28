@@ -45,8 +45,8 @@ function fillTasksOnThePage() {
     tasksDiv.classList.remove("no-tasks");
     for (let i = 0; i < tasks.length; i++) {
       tasksDiv.innerHTML += `
-            <div role="task" aria-label="task" class="task">
-                <div role="task title and date" aria-label="task title and date" class="title-date">
+            <div aria-label="task" class="task">
+                <div  aria-label="task title and date" class="title-date">
                   ${
                     !tasks[i].isDone
                       ? ` <h2 class="task-title">${tasks[i].title}</h2>
@@ -57,24 +57,24 @@ function fillTasksOnThePage() {
                   }
                 </div>
                     
-                <div role="task actions" aria-label="task actions" class="task-actions">
+                <div aria-label="task actions" class="task-actions">
                     
                     ${
                       !tasks[i].isDone
                         ? ` <button role="button" aria-label="complete task" class="isDone-btn" onclick="completeTask(${i})" >
-                                <i role="button" aria-label="complete task" class="fa-solid fa-circle-check"></i>
+                                <i class="fa-solid fa-circle-check"></i>
                             </button> `
                         : ` <button role="button" aria-label="incomplete task" class="isDone-btn" onclick="completeTask(${i})">
-                                <i role="button" aria-label="incomplete task" class="fa-solid fa-circle-minus" style="color:#9E2B25"></i>
+                                <i class="fa-solid fa-circle-minus" style="color:#9E2B25"></i>
                             </button>`
                     }
                     
                     
                     <button role="button" aria-label="edit task" class="edit-btn" onclick="editTask(${i})">
-                        <i role="button" aria-label="edit task" class="fa-solid fa-pen-to-square"></i>
+                        <i class="fa-solid fa-pen-to-square"></i>
                     </button>
                     <button role="button" aria-label="delete task" class="delete-btn" onclick="deleteTask(${i})">
-                        <i role="button" aria-label="delete task" class="fa-solid fa-trash"></i>
+                        <i  class="fa-solid fa-trash"></i>
                     </button>
                 </div>
             </div>
@@ -88,9 +88,9 @@ function completeTask(index) {
   localStorage.setItem("tasks", JSON.stringify(tasks));
 }
 function editTask(index) {
-  nweTitle = prompt("Enter the new task's title", tasks[index].title);
-  if (nweTitle !== null && nweTitle.trim().length > 0) {
-    tasks[index].title = nweTitle;
+ let newTitle = prompt("Enter the new task's title", tasks[index].title);
+  if (newTitle !== null && newTitle.trim().length > 0) {
+    tasks[index].title = newTitle;
   }
   localStorage.setItem("tasks", JSON.stringify(tasks));
   fillTasksOnThePage();
