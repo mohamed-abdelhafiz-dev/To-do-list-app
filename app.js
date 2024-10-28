@@ -45,7 +45,7 @@ function fillTasksOnThePage() {
     tasksDiv.classList.remove("no-tasks");
     for (let i = 0; i < tasks.length; i++) {
       tasksDiv.innerHTML += `
-            <div class="task">
+            <div role="task" aria-label="task" class="task">
                 <div class="title-date">
                   ${
                     !tasks[i].isDone
