@@ -1,0 +1,179 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --background-color: #0C1821;
+    --text-color: #DEC5E3;
+    --border-color: rgb(117, 89, 146);
+}
+
+body {
+    background-color: var(--background-color);
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.app {
+    width: 600px;
+    margin: 150px auto;
+    color: var(--text-color);
+}
+
+.app .app-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #FF9B42;
+    padding: 7px 13px;
+    border-radius: 10px;
+    color: #0A0903;
+}
+
+.app .app-title .title {
+    width: 100%;
+    margin-right: 5px;
+    text-align: center;
+    font-size: 28px;
+    font-style: italic;
+    font-weight: bolder;
+}
+
+.app .app-title .add-task-btn {
+    background-color: transparent;
+    border: none;
+    font-size: 28px;
+    cursor: pointer;
+    font-weight: bolder;
+}
+
+.app .tasks .task {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px;
+    border: 1px solid var(--border-color);
+    border-radius: 13px;
+    margin: 15px;
+}
+
+.app .tasks .task .title-date {
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+    min-height: 70px;
+    justify-content: space-around;
+}
+
+.app .tasks .task .task-actions {
+    display: flex;
+    width: 25%;
+    justify-content: space-around;
+
+    align-items: center;
+}
+
+.app .tasks .task .title-date .task-title {
+    font-size: 18px;
+    overflow-wrap: anywhere;
+
+}
+
+.app .tasks .task .title-date .task-date {
+    font-size: 13px;
+    font-weight: 100;
+    color: #b2ae9d;
+}
+
+.app .tasks .task .task-actions button {
+    font-size: 25px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.app .tasks .task .task-actions .isDone-btn {
+    color: rgb(66, 186, 66);
+}
+
+.app .tasks .task .task-actions .delete-btn {
+    color: #9E2B25;
+}
+
+.app .tasks .task .task-actions .edit-btn {
+    color: #465038;
+}
+
+.no-tasks {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+    font-size: 25px;
+}
+
+::selection {
+    background-color: #FF9B42;
+    color: #9E2B25;
+}
+
+@media screen and (max-width:600px) {
+    .app {
+        width: calc(100% - 50px);
+        margin: 150px 25px;
+    }
+
+    .app .tasks .task .task-actions button {
+        font-size: 20px;
+        margin-left: 15px;
+    }
+}
+
+@media screen and (max-width:500px) {
+    .app {
+        width: calc(100% - 50px);
+        margin: 150px 25px;
+    }
+
+    .app .tasks .task .task-actions button {
+        font-size: 20px;
+        margin-left: 15px;
+    }
+
+    .app .tasks .task .task-actions {
+        width: 40%;
+    }
+
+    .app .tasks .task .title-date {
+        display: flex;
+        flex-direction: column;
+        width: 60%;
+        min-height: 70px;
+        justify-content: space-around;
+    }
+}
+
+@media screen and (max-width:350px) {
+    .app {
+        width: calc(100% - 50px);
+        margin: 150px 25px;
+    }
+
+    .app .tasks .task .task-actions button {
+        font-size: 20px;
+        margin-left: 15px;
+    }
+
+    .app .tasks .task .task-actions {
+        width: 50%;
+    }
+
+    .app .tasks .task .title-date {
+        display: flex;
+        flex-direction: column;
+        width: 50%;
+        min-height: 70px;
+        justify-content: space-around;
+    }
+}
