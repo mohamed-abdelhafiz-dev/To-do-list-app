@@ -46,7 +46,7 @@ function fillTasksOnThePage() {
     for (let i = 0; i < tasks.length; i++) {
       tasksDiv.innerHTML += `
             <div role="task" aria-label="task" class="task">
-                <div class="title-date">
+                <div role="task title and date" aria-label="task title and date" class="title-date">
                   ${
                     !tasks[i].isDone
                       ? ` <h2 class="task-title">${tasks[i].title}</h2>
@@ -57,7 +57,7 @@ function fillTasksOnThePage() {
                   }
                 </div>
                     
-                <div class="task-actions">
+                <div role="task actions" aria-label="task actions" class="task-actions">
                     
                     ${
                       !tasks[i].isDone
