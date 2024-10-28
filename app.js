@@ -61,20 +61,20 @@ function fillTasksOnThePage() {
                     
                     ${
                       !tasks[i].isDone
-                        ? ` <button class="isDone-btn" onclick="completeTask(${i})" >
-                                <i class="fa-solid fa-circle-check"></i>
+                        ? ` <button role="button" aria-label="complete task" class="isDone-btn" onclick="completeTask(${i})" >
+                                <i role="button" aria-label="complete task" class="fa-solid fa-circle-check"></i>
                             </button> `
-                        : ` <button class="isDone-btn" onclick="completeTask(${i})">
-                                <i class="fa-solid fa-circle-minus" style="color:#9E2B25"></i>
+                        : ` <button role="button" aria-label="incomplete task" class="isDone-btn" onclick="completeTask(${i})">
+                                <i role="button" aria-label="incomplete task" class="fa-solid fa-circle-minus" style="color:#9E2B25"></i>
                             </button>`
                     }
                     
                     
-                    <button class="edit-btn" onclick="editTask(${i})">
-                    <i class="fa-solid fa-pen-to-square"></i>
+                    <button role="button" aria-label="edit task" class="edit-btn" onclick="editTask(${i})">
+                        <i role="button" aria-label="edit task" class="fa-solid fa-pen-to-square"></i>
                     </button>
-                    <button class="delete-btn" onclick="deleteTask(${i})">
-                    <i class="fa-solid fa-trash"></i>
+                    <button role="button" aria-label="delete task" class="delete-btn" onclick="deleteTask(${i})">
+                        <i role="button" aria-label="delete task" class="fa-solid fa-trash"></i>
                     </button>
                 </div>
             </div>
