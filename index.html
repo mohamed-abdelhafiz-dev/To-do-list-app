@@ -9,16 +9,22 @@
       src="https://kit.fontawesome.com/38acca71bb.js"
       crossorigin="anonymous"
     ></script>
-    <link rel="shortcut icon" href="images-icons/checklist.png" type="image/x-icon">
+    <link
+      rel="shortcut icon"
+      href="images-icons/checklist.png"
+      type="image/x-icon"
+    />
   </head>
   <body>
-    <div class="app">
-      <div class="app-title">
-        <h1 class="title">2-DO</h1>
-        <button class="add-task-btn"><i class="fa-solid fa-plus"></i></button>
-      </div>
-      <div class="tasks"></div>
-    </div>
+    <main role="main" class="app">
+      <header role="banner" class="app-title">
+        <h1 role="heading" class="title">2-DO</h1>
+        <button role="button" class="add-task-btn">
+          <i role="button" class="fa-solid fa-plus"></i>
+        </button>
+      </header>
+      <section role="feed" class="tasks"></section>
+    </main>
     <script src="app.js"></script>
   </body>
 </html>
