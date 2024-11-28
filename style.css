@@ -5,9 +5,9 @@
 }
 
 :root {
-    --background-color: #0C1821;
-    --text-color: #DEC5E3;
-    --border-color: rgb(117, 89, 146);
+    --background-color: #0d1a2b;
+    --text-color: #ffffff;
+    --border-color: #ffffff;
 }
 
 body {
@@ -25,10 +25,11 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #FF9B42;
+    background-color: #712cf9;
     padding: 7px 13px;
     border-radius: 10px;
-    color: #0A0903;
+    color: var(--text-color);
+    box-shadow: 0 0 10px #712cf9;
 }
 
 .app .app-title .title {
@@ -46,6 +47,11 @@ body {
     font-size: 28px;
     cursor: pointer;
     font-weight: bolder;
+    color: var(--text-color);
+}
+
+.app .app-title .add-task-btn:hover {
+    transform: scale(1.1);
 }
 
 .app .tasks .task {
@@ -113,10 +119,7 @@ body {
     font-size: 25px;
 }
 
-::selection {
-    background-color: #FF9B42;
-    color: #9E2B25;
-}
+
 
 @media screen and (max-width:600px) {
     .app {
@@ -175,5 +178,80 @@ body {
         width: 50%;
         min-height: 70px;
         justify-content: space-around;
+    }
+}
+
+.hidden {
+    display: none;
+}
+
+.prompt {
+    border: 1px solid var(--text-color);
+    background-color: var(--background-color);
+    border-radius: 8px;
+    color: var(--text-color);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 170px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -87%);
+    width: 450px;
+    max-width: 80vw;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.prompt h3 {
+    align-self: center;
+}
+
+.prompt input {
+    width: 70%;
+    align-self: center;
+    padding: 5px;
+    border-radius: inherit;
+    background-color: #f4c4c4;
+    color: var(--background-color);
+    outline: none;
+    border: none;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.prompt input:focus {
+    box-shadow: 0 0 15px #712cf9;
+}
+
+.prompt button {
+    background-color: #f33939;
+    color: var(--text-color);
+    padding: 10px;
+    border-radius: 8px;
+    border: none;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    width: 72px;
+}
+
+.prompt button:hover {
+    background-color: rgb(255, 0, 0, 0.9);
+}
+
+.prompt .buttons {
+    display: flex;
+    justify-content: space-evenly;
+    width: 70%;
+    align-self: center;
+}
+
+@media screen and (max-width:415px) {
+    .no-tasks {
+        display: block;
+        margin: 25px;
+        line-height: 1.3;
+        text-align: center;
     }
 }
