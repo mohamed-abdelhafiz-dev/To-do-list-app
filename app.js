@@ -21,18 +21,19 @@ if (
 }
 addButton.addEventListener("click", function (event) {
   promptDiv.classList.remove("hidden");
+  promptDiv.parentElement.classList.remove("hidden");
   promptDiv.classList.add("prompt");
   promptinput.focus();
-  document.querySelector("body").style.background = "#000000d9";
 });
 
-saveBtn.addEventListener("click", function (event) {
+function save() {
   let taskTitle = promptinput.value;
   if (taskTitle.trim() == "" && editIndex != null) {
     deleteTask(editIndex);
     editIndex = null;
     promptDiv.classList.remove("prompt");
     promptDiv.classList.add("hidden");
+    promptDiv.parentElement.classList.add("hidden");
     document.querySelector("body").style.background = "#000";
   }
   if (taskTitle.trim() == "" && editIndex == null) {
@@ -44,7 +45,8 @@ saveBtn.addEventListener("click", function (event) {
       promptinput.value = "";
       promptDiv.classList.remove("prompt");
       promptDiv.classList.add("hidden");
-      document.querySelector("body").style.background = "#0d1a2b";
+      promptDiv.parentElement.classList.add("hidden");
+
       editIndex = null;
       return;
     } else if (editIndex != null && taskTitle != tasks[editIndex].title) {
@@ -53,7 +55,7 @@ saveBtn.addEventListener("click", function (event) {
       fillTasksOnThePage();
       promptDiv.classList.remove("prompt");
       promptDiv.classList.add("hidden");
-      document.querySelector("body").style.background = "#0d1a2b";
+      promptDiv.parentElement.classList.add("hidden");
       editIndex = null;
       promptinput.value = "";
       return;
@@ -65,15 +67,16 @@ saveBtn.addEventListener("click", function (event) {
   }
   promptDiv.classList.remove("prompt");
   promptDiv.classList.add("hidden");
+  promptDiv.parentElement.classList.add("hidden");
   promptinput.value = "";
   document.querySelector("body").style.background = "#0d1a2b";
-});
+}
+saveBtn.addEventListener("click", save);
 cancelBtn.addEventListener("click", function () {
   promptDiv.classList.add("hidden");
+  promptDiv.parentElement.classList.add("hidden");
   promptDiv.classList.remove("prompt");
   promptinput.value = "";
-
-  document.querySelector("body").style.background = "#0d1a2b";
 });
 function createTask(taskTitle) {
   let task = {
@@ -141,13 +144,24 @@ function completeTask(index) {
 let editIndex = null;
 function editTask(index) {
   promptDiv.classList.remove("hidden");
+  promptDiv.parentElement.classList.remove("hidden");
   promptDiv.classList.add("prompt");
-  document.querySelector("body").style.background = "#000000d9";
   editIndex = index;
   promptinput.value = tasks[index].title;
+  promptinput.focus();
 }
 function deleteTask(index) {
   tasks.splice(index, 1);
   fillTasksOnThePage();
   localStorage.setItem("tasks", JSON.stringify(tasks));
 }
+
+addEventListener("keydown", function (event) {
+  if (!promptDiv.parentElement.classList.contains("hidden")) {
+    if (event.key === "Escape") {
+      promptDiv.parentElement.classList.add("hidden");
+    } else if (event.key === "Enter") {
+      save(event);
+    }
+  }
+});

@@ -185,6 +185,15 @@ body {
     display: none;
 }
 
+.prompt-container {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.8);
+    top: 0;
+    left: 0;
+}
+
 .prompt {
     border: 1px solid var(--text-color);
     background-color: var(--background-color);
@@ -225,7 +234,7 @@ body {
 }
 
 .prompt button {
-    background-color: #f33939;
+    background-color: rgb(243, 57, 57);
     color: var(--text-color);
     padding: 10px;
     border-radius: 8px;
@@ -236,9 +245,18 @@ body {
     width: 72px;
 }
 
-.prompt button:hover {
-    background-color: rgb(255, 0, 0, 0.9);
+.prompt .save {
+    background-color: rgb(0, 119, 255);
 }
+
+.prompt .save:hover {
+    background-color: rgba(0, 119, 255, 0.8);
+}
+
+.prompt button:not(.save):hover {
+    background-color: rgba(243, 57, 57, 0.8);
+}
+
 
 .prompt .buttons {
     display: flex;
